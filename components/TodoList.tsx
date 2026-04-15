@@ -75,12 +75,12 @@ export default function TodoList() {
           }
           onKeyDown={handleKeyDown}
           placeholder="What needs to be done?"
-          className="flex-1 rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm shadow-sm placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+          className="flex-1 rounded-lg border border-purple-500/30 bg-white/10 backdrop-blur-sm px-4 py-3 text-sm text-gray-100 shadow-sm placeholder:text-purple-300/40 focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400/20"
         />
         <button
           onClick={addTodo}
           disabled={inputValue.trim().length === 0}
-          className="rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-lg bg-gradient-to-r from-amber-500 to-pink-500 px-5 py-3 text-sm font-medium text-white shadow-sm transition-all hover:from-amber-400 hover:to-pink-400 hover:shadow-lg hover:shadow-pink-500/25 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Add
         </button>
@@ -96,15 +96,15 @@ export default function TodoList() {
                 onClick={() => setFilter(fb.value)}
                 className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                   filter === fb.value
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-gradient-to-r from-amber-500 to-pink-500 text-white'
+                    : 'bg-white/10 text-purple-300/70 hover:bg-white/20 hover:text-purple-200'
                 }`}
               >
                 {fb.label}
               </button>
             ))}
           </div>
-          <span className="text-xs text-gray-500">
+          <span className="text-xs text-purple-300/50">
             {activeCount} item{activeCount !== 1 ? 's' : ''} left
           </span>
         </div>
@@ -126,7 +126,7 @@ export default function TodoList() {
       {todos.length === 0 && (
         <div className="mt-12 flex flex-col items-center justify-center text-center">
           <div className="text-5xl">📝</div>
-          <p className="mt-3 text-sm text-gray-500">
+          <p className="mt-3 text-sm text-purple-300/50">
             No todos yet. Add one above to get started!
           </p>
         </div>
@@ -134,7 +134,7 @@ export default function TodoList() {
 
       {todos.length > 0 && filteredTodos.length === 0 && (
         <div className="mt-8 flex flex-col items-center justify-center text-center">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-purple-300/50">
             No {filter === 'active' ? 'active' : 'completed'} todos.
           </p>
         </div>
@@ -145,7 +145,7 @@ export default function TodoList() {
         <div className="mt-4 flex justify-end">
           <button
             onClick={clearCompleted}
-            className="text-xs text-gray-400 underline-offset-2 transition-colors hover:text-red-500 hover:underline"
+            className="text-xs text-purple-400/50 underline-offset-2 transition-colors hover:text-red-400 hover:underline"
           >
             Clear completed ({completedCount})
           </button>
